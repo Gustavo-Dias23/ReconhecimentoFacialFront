@@ -72,3 +72,14 @@ python main.py
 * Recomenda-se boa iluminação para melhorar a detecção e reconhecimento.
 * O arquivo `db.pkl` armazena os vetores faciais, não as imagens.
 * Para parar a coleta de amostras antes do final, pressione `q`.
+
+## Nota Ética sobre Uso de Dados Faciais
+
+Este projeto envolve o uso de dados faciais, que são informações sensíveis e pessoais. Reforçamos a importância do uso **responsável e ético** deste sistema:
+
+* Os rostos cadastrados devem pertencer apenas a pessoas que deram consentimento explícito para coleta e armazenamento de seus dados.
+* Os dados faciais devem ser usados **apenas para fins de estudo, pesquisa ou controle de acesso autorizado**, nunca para vigilância sem autorização.
+* O arquivo `db.pkl` contém apenas vetores faciais e **não armazena imagens completas**, mas ainda assim deve ser protegido e tratado com confidencialidade.
+* O desenvolvedor e os usuários deste sistema **devem respeitar leis de privacidade e regulamentações locais**, incluindo LGPD, GDPR ou legislações equivalentes.
+
+O uso indevido deste sistema para invadir a privacidade de terceiros ou coletar dados sem consentimento é estritamente proibido.
