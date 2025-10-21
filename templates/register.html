@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastro Facial</title>
-    <style>
+     <style>
         body { font-family: sans-serif; text-align: center; margin-top: 50px; }
         .container { max-width: 640px; margin: auto; }
         input, button { padding: 10px; margin: 5px; font-size: 1em; }
@@ -13,11 +13,15 @@
 <body>
     <div class="container">
         <h1>Cadastro de Novo Usuário</h1>
-        <p>Digite seu nome para iniciar a captura do seu rosto.</p>
-        {% if error %}<p class="error">{{ error }}</p>{% endif %}
-        <form action="{{ url_for('start_capture') }}" method="post">
-            <input type="text" name="name" placeholder="Digite seu nome" required>
-            <button type="submit">Iniciar Captura</button>
+        <p>Digite seu nome e clique em "Próximo Passo" para iniciar a captura do seu rosto.</p>
+        
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form action="{{ url_for('register') }}" method="post">
+            <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
+            <button type="submit">Próximo Passo</button>
         </form>
         <br>
         <p><a href="{{ url_for('index') }}">Voltar para o Login</a></p>

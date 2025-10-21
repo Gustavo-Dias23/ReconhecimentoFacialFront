@@ -5,23 +5,26 @@
     <title>Capturando Rosto</title>
     <style>
         body { font-family: sans-serif; text-align: center; margin-top: 50px; }
-        .container { max-width: 640px; margin: auto; }
         img { border: 2px solid #ccc; }
-        #status { font-size: 1.2em; font-weight: bold; color: green; }
+        .container { max-width: 640px; margin: auto; }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Cadastrando: {{ name }}</h1>
-        <p>Por favor, olhe para a câmera. Mova seu rosto lentamente.</p>
+        <p>Por favor, olhe para a câmera e aguarde. Estamos coletando 5 amostras do seu rosto.</p>
         <img src="{{ url_for('video_feed_register') }}" width="640" height="480">
-        <p id="status" style="display:none;">Cadastro concluído! Redirecionando...</p>
+        <p id="status">Cadastro em andamento...</p>
     </div>
+
     <script>
+        // Após um tempo, informa que o cadastro foi concluído e redireciona.
         setTimeout(() => {
-            document.getElementById('status').style.display = 'block';
-            setTimeout(() => { window.location.href = "{{ url_for('index') }}"; }, 2000);
-        }, 4000); // Tempo para coletar as amostras
+            document.getElementById('status').innerText = 'Cadastro concluído com sucesso! Redirecionando para o login...';
+            setTimeout(() => {
+                window.location.href = "{{ url_for('index') }}";
+            }, 2000);
+        }, 4000); // Tempo um pouco maior que a coleta (5 amostras * 0.5s + margem)
     </script>
 </body>
 </html>
