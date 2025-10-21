@@ -1,5 +1,7 @@
 # Sistema Web de Login Facial e Análise de Perfil de Investidor
 
+Link: https://youtu.be/GN4YDxxMUBc
+
 Aplicação web que utiliza reconhecimento facial em tempo real para autenticação de usuários. Após o login, o sistema apresenta um quiz para determinar o perfil de investidor do usuário, sugerindo os tipos de investimento mais adequados.
 
 ## Participantes do grupo
