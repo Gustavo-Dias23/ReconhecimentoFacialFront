@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz do Investidor</title>
+    <style>
+        body { font-family: sans-serif; text-align: left; margin-top: 50px; }
+        .container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+        .question { margin-bottom: 20px; }
+        button { padding: 10px 20px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz do Investidor</h1>
+        <p>Olá, {{ session.user }}! Responda às perguntas abaixo para descobrirmos seu perfil.</p>
+        <form action="{{ url_for('submit_quiz') }}" method="post">
+            <div class="question">
+                <p><strong>1. Qual seu principal objetivo ao investir?</strong></p>
+                <input type="radio" name="q1" value="1" required> Preservar meu patrimônio com segurança.<br>
+                <input type="radio" name="q1" value="2"> Equilibrar segurança com um pouco de rentabilidade.<br>
+                <input type="radio" name="q1" value="3"> Maximizar os ganhos, mesmo que isso envolva mais riscos.<br>
+            </div>
+            <div class="question">
+                <p><strong>2. Por quanto tempo você pretende deixar seu dinheiro investido?</strong></p>
+                <input type="radio" name="q2" value="1" required> Curto prazo (até 2 anos).<br>
+                <input type="radio" name="q2" value="2"> Médio prazo (de 2 a 5 anos).<br>
+                <input type="radio" name="q2" value="3"> Longo prazo (mais de 5 anos).<br>
+            </div>
+            <div class="question">
+                <p><strong>3. Como você reagiria se seus investimentos caíssem 20% em um mês?</strong></p>
+                <input type="radio" name="q3" value="1" required> Venderia tudo para não perder mais.<br>
+                <input type="radio" name="q3" value="2"> Manteria a posição, mas ficaria preocupado.<br>
+                <input type="radio" name="q3" value="3"> Compraria mais, aproveitando o preço baixo.<br>
+            </div>
+            <button type="submit">Ver Meu Perfil</button>
+        </form>
+    </div>
+</body>
+</html>

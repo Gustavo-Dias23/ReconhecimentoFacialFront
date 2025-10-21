@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Capturando Rosto</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+        .container { max-width: 640px; margin: auto; }
+        img { border: 2px solid #ccc; }
+        #status { font-size: 1.2em; font-weight: bold; color: green; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastrando: {{ name }}</h1>
+        <p>Por favor, olhe para a câmera. Mova seu rosto lentamente.</p>
+        <img src="{{ url_for('video_feed_register') }}" width="640" height="480">
+        <p id="status" style="display:none;">Cadastro concluído! Redirecionando...</p>
+    </div>
+    <script>
+        setTimeout(() => {
+            document.getElementById('status').style.display = 'block';
+            setTimeout(() => { window.location.href = "{{ url_for('index') }}"; }, 2000);
+        }, 4000); // Tempo para coletar as amostras
+    </script>
+</body>
+</html>

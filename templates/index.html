@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Facial</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+        .container { max-width: 640px; margin: auto; }
+        img { border: 2px solid #ccc; background-color: #f0f0f0; }
+        #status-message { font-size: 1.3em; font-weight: bold; color: #28a745; height: 40px; padding-top: 15px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login por Reconhecimento Facial</h1>
+        <p id="instruction-text">Posicione seu rosto em frente à câmera.</p>
+        <img id="video-feed" src="{{ url_for('video_feed_login') }}" width="640" height="480">
+        <div id="status-message"></div>
+        <p><a href="{{ url_for('register') }}">Não tem uma conta? Cadastre-se</a></p>
+    </div>
+    <script>
+        const videoFeed = document.getElementById('video-feed');
+        const statusMessage = document.getElementById('status-message');
+        const instructionText = document.getElementById('instruction-text');
+        const loginInterval = setInterval(() => {
+            fetch('/check_login_status')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.logged_in) {
+                        clearInterval(loginInterval);
+                        instructionText.style.display = 'none';
+                        statusMessage.innerText = `Bem-vindo(a), ${data.user}! Redirecionando...`;
+                        videoFeed.src = "";
+                        setTimeout(() => { window.location.href = "{{ url_for('quiz') }}"; }, 1500);
+                    }
+                });
+        }, 2000);
+    </script>
+</body>
+</html>

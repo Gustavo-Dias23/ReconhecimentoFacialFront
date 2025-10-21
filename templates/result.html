@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado do Quiz</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+        .container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; background-color: #f9f9f9; }
+        h1 { color: #333; }
+        h2 { color: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Seu Perfil de Investidor é:</h1>
+        <h2>{{ profile }}</h2>
+        <p>{{ description }}</p>
+        <br>
+        <a href="{{ url_for('quiz') }}">Refazer o quiz</a>
+    </div>
+</body>
+</html>
