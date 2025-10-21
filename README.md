@@ -56,3 +56,27 @@ Aplicação web que utiliza reconhecimento facial em tempo real para autenticaç
     * Responda às 3 perguntas para descobrir seu perfil de investidor e ver as recomendações.
 
 ## Estrutura do Projeto
+. ├── app.py # Script principal da aplicação Flask ├── db.pkl # Banco de dados de rostos (gerado automaticamente) ├── templates/ # Pasta com os arquivos HTML │ ├── index.html # Página de login │ ├── register.html # Página para inserir o nome │ ├── capture.html # Página para captura do rosto │ ├── quiz.html # Página do quiz │ └── result.html # Página de resultado do quiz ├── shape_predictor_5_face_landmarks.dat # Modelo Dlib ├── dlib_face_recognition_resnet_model_v1.dat # Modelo Dlib └── README.md
+
+
+## Configurações no `app.py`
+
+* `CAMERA_INDEX`: Índice da câmera a ser usada (padrão: `0`). Altere para `1`, `2`, etc., se a câmera padrão não funcionar.
+* `RECOGNITION_THRESHOLD`: Distância máxima para considerar um rosto como conhecido (padrão: `0.6`). Valores maiores são menos rigorosos.
+
+## Observações
+
+* Recomenda-se boa iluminação para melhorar a detecção e o reconhecimento facial.
+* O arquivo `db.pkl` armazena os vetores faciais (representações matemáticas dos rostos), não as imagens.
+* Certifique-se de conceder permissão ao navegador para usar a câmera quando solicitado.
+
+## Nota Ética sobre Uso de Dados Faciais
+
+Este projeto envolve o uso de dados faciais, que são informações sensíveis e pessoais. Reforçamos a importância do uso **responsável e ético** deste sistema:
+
+* Os rostos cadastrados devem pertencer apenas a pessoas que deram consentimento explícito para coleta e armazenamento de seus dados.
+* Os dados faciais devem ser usados **apenas para fins de estudo, pesquisa ou controle de acesso autorizado**, nunca para vigilância sem autorização.
+* O arquivo `db.pkl` contém apenas vetores faciais e **não armazena imagens completas**, mas ainda assim deve ser protegido e tratado com confidencialidade.
+* O desenvolvedor e os usuários deste sistema **devem respeitar leis de privacidade e regulamentações locais**, incluindo LGPD, GDPR ou legislações equivalentes.
+
+O uso indevido deste sistema para invadir a privacidade de terceiros ou coletar dados sem consentimento é estritamente proibido.
