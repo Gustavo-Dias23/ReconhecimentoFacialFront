@@ -2,6 +2,15 @@
 
 Sistema de reconhecimento facial em tempo real com cadastro, validação e gerenciamento de rostos usando Python, OpenCV e Dlib.
 
+## Participantes do grupo
+| Nome                 | RM      |
+| -------------------- | ------- |
+| Leonardo Moreira Valério | RM550988  |
+| Breno Silva   | RM97864    |
+| Enrico Marquez   | RM99325    |
+| Joel Barros   | RM550378   |
+| Gustavo Dias   | RM550820  |
+
 ## Funcionalidades
 
 * **Cadastro de rostos:** Coleta múltiplas amostras faciais de um usuário e cria um vetor médio para reconhecimento.
